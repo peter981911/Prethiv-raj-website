@@ -29,7 +29,8 @@ export const useKonamiCode = () => {
 
                 // Compare our current sequence string against the target sequence string
                 if (newSequence.join(',') === konamiSequence.join(',')) {
-                    setIsTriggered(true);
+                    setIsTriggered(prev => !prev);
+                    return []; // Reset sequence after successful entry to allow toggling off
                 }
 
                 return newSequence;
@@ -38,7 +39,7 @@ export const useKonamiCode = () => {
 
         // Custom Mobile Trigger Listener
         const handleCustomTrigger = () => {
-            setIsTriggered(true);
+            setIsTriggered(prev => !prev);
         };
 
         // Attach the listener to the global window
@@ -51,6 +52,18 @@ export const useKonamiCode = () => {
             window.removeEventListener('konamiDesecret', handleCustomTrigger);
         };
     }, []);
+
+    // Timer logic to revert the code effect automatically
+    useEffect(() => {
+        let timer;
+        if (isTriggered) {
+            timer = setTimeout(() => {
+                setIsTriggered(false);
+                setInputSequence([]); // clear the memory buffer
+            }, 20000); // 20 second duration
+        }
+        return () => clearTimeout(timer);
+    }, [isTriggered]);
 
     return isTriggered;
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -7,11 +7,11 @@ import CustomCursor from './components/CustomCursor';
 import CursorSpotlight from './components/CursorSpotlight';
 import Preloader from './components/Preloader';
 import ParticleNetwork from './components/ParticleNetwork';
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import ProjectDetails from './pages/ProjectDetails';
-import Resume from './pages/Resume';
-import NotFound from './pages/NotFound';
+const Home = lazy(() => import('./pages/Home'));
+const Blog = lazy(() => import('./pages/Blog'));
+const ProjectDetails = lazy(() => import('./pages/ProjectDetails'));
+const Resume = lazy(() => import('./pages/Resume'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 import InteractiveTerminal from './components/InteractiveTerminal';
 import CyberGlitch from './components/CyberGlitch';
 import AudioVisualizer from './components/AudioVisualizer';
@@ -79,13 +79,15 @@ function App() {
       {!is404 && <Navbar />}
 
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00f0ff', fontFamily: 'monospace', fontSize: '1.2rem', opacity: 0.5 }}>LOADING NEURAL CACHE...</div>}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </AnimatePresence>
 
       {!is404 && location.pathname !== '/terminal' && <Footer />}
