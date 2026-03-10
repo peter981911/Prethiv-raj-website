@@ -1,4 +1,4 @@
-# PRETHIV RAJ - Cyberpunk Interactive Portfolio
+# PRETHIV RAJ - Portfolio
 
 A highly interactive, cyberpunk-themed developer portfolio built with React, Vite, and Framer Motion. This project features immersive 3D-like effects, a custom particle network, magnetic UI physics, and hidden terminal Easter eggs, all wrapped in a premium dark-mode aesthetic.
 
