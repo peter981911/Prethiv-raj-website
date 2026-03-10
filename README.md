@@ -1,16 +1,35 @@
-# React + Vite
+# PRETHIV RAJ - Cyberpunk Interactive Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A highly interactive, cyberpunk-themed developer portfolio built with React, Vite, and Framer Motion. This project features immersive 3D-like effects, a custom particle network, magnetic UI physics, and hidden terminal Easter eggs, all wrapped in a premium dark-mode aesthetic.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Cyberpunk Aesthetic:** Neon gradients, matrix-style glitches, and CRT scanline effects.
+*   **Interactive Terminal:** An embedded, working command-line interface with custom commands and hidden secrets (try running `sudo rm -rf`).
+*   **Magnetic UI:** Buttons and interactable elements actively pull towards the user's cursor based on proximity.
+*   **Particle Network:** A dynamic, physics-based background canvas that reacts to mouse movement and rapid clicks.
+*   **Sensory Warning Gate:** A high-tech immersive entry modal for a dramatic first impression.
+*   **404 Pong Protocol:** A fully playable Retro Pong mini-game hidden on the 404 error page.
+*   **Live Code Sandbox:** Real-time typewriting simulation blocks for displaying codebase logic.
+*   **Immersive Audio:** Integrated hover and click audio micro-interactions complete the sensory experience.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Frontend Framework:** React 18
+*   **Build Tool:** Vite
+*   **Routing:** React Router v6
+*   **Animations:** Framer Motion
+*   **Styling:** Custom Vanilla CSS with CSS Variables
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Discoverable Secrets (Spoilers!)
+
+*   **Developer Console:** Open your browser's Developer Tools Console for a massive ASCII art greeting.
+*   **Physics Breaker:** Rapidly click the background 5 times in a row to overload the particle physics engine.
+*   **System Wipe:** Type `sudo rm -rf` into the interactive terminal to trigger a catastrophic visual collapse.
+*   **Retro Gaming:** Visit any non-existent route on the website (e.g., `/does-not-exist`) to play a game of Pong against the system AI.
+*   **Mobile Konami Code:** Tap the website logo 7 times rapidly on a mobile device to trigger the global red-shift anomaly.
+
+---
+
+*Engineered with ♥ and React.*
