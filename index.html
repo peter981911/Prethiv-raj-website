@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script>
+    window.onerror = function (msg, url, line, col, err) {
+      var d = document.createElement('div');
+      d.style.position = 'fixed'; d.style.top = '10%'; d.style.left = '10%'; d.style.right = '10%';
+      d.style.background = 'red'; d.style.color = 'white'; d.style.padding = '20px'; d.style.zIndex = '999999';
+      d.style.fontFamily = 'monospace'; d.style.whiteSpace = 'pre-wrap';
+      d.innerText = "CRASH: " + msg + "\n" + (err ? err.stack : '');
+      document.body.appendChild(d);
+    };
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="PRETHIV RAJ M V | Software Developer focused on scalable web applications, cloud infrastructure, and cybersecurity." />
+  <meta name="keywords" content="Software Developer, Full Stack, Cyber Security, React, Node.js, Cloud Architectures" />
+  <meta name="author" content="Prethiv Raj M V" />
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://portfolio.com/" />
+  <meta property="og:title" content="Prethiv Raj M V | Software Developer" />
+  <meta property="og:description"
+    content="Developer focused on building scalable web applications and exploring secure cloud architectures." />
+  <meta property="og:image" content="/projects/ngo_system.png" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prethiv Raj M V" />
+  <meta name="twitter:description"
+    content="Developer focused on building scalable web applications and exploring secure cloud architectures." />
+
+  <!-- JSON-LD Structured Data for Google SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Prethiv Raj M V",
+      "url": "https://portfolio.com",
+      "jobTitle": "Software Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://github.com/shadow325523"
+      ]
+    }
+    </script>
+  <title>PRETHIV RAJ M V</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

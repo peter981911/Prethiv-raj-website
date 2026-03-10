@@ -1,0 +1,83 @@
+/* Base reset to hide native cursor on the body */
+body {
+    cursor: none;
+}
+
+/* Ensure all typical interactive elements don't show the hand pointer either, 
+   since we are overriding it with our custom visual cursor. */
+a,
+button,
+input,
+textarea,
+select,
+.project-card,
+.nav-link,
+.nav-btn,
+.btn-primary,
+.btn-secondary,
+.social-link {
+    cursor: none !important;
+}
+
+/* The physics outer ring */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    pointer-events: none;
+    /* Crucial so it doesn't block clicks */
+    z-index: 9999;
+    will-change: transform;
+}
+
+/* Expanded hover state size compensation */
+.custom-cursor[data-hover="true"] {
+    width: 64px;
+    height: 64px;
+}
+
+/* The exact little center dot */
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* Center exactly on the coords */
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px var(--accent-cyan);
+    transition: opacity 0.2s;
+}
+
+/* Hide cursor on small screens as they are touch devices */
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    .project-card,
+    .nav-link,
+    .nav-btn,
+    .btn-primary,
+    .btn-secondary,
+    .social-link {
+        cursor: pointer !important;
+    }
+
+    .custom-cursor,
+    .cursor-dot {
+        display: none !important;
+    }
+}

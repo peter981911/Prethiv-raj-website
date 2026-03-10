@@ -1,0 +1,98 @@
+.github-matrix-container {
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.matrix-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.matrix-icon {
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 240, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.matrix-header h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+
+/* Tooltip and Text Base Overrides for the library */
+.react-activity-calendar {
+    margin: 0 auto;
+}
+
+/* Force the text inside the calendar to use our font and color */
+.react-activity-calendar text {
+    fill: var(--text-secondary) !important;
+    font-family: 'Space Mono', 'Fira Code', monospace !important;
+}
+
+/* Provide a glow effect to higher-tier contribution blocks */
+.react-activity-calendar rect[fill="#00F0FF"] {
+    filter: drop-shadow(0 0 3px rgba(0, 240, 255, 0.8));
+    animation: matrixPulse 2s infinite alternate;
+}
+
+@keyframes matrixPulse {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(0, 240, 255, 0.5));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 6px rgba(0, 240, 255, 1));
+    }
+}
+
+.matrix-glow {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.calendar-wrapper {
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    /* Space for scrollbar if needed on mobile */
+}
+
+.calendar-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 4px;
+}

@@ -1,0 +1,138 @@
+/* Section Common Setup (Can be reused) */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    white-space: nowrap;
+}
+
+.section-line {
+    height: 1px;
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+/* 3D Project Card Setup */
+.project-card {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: var(--border-glass);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    overflow: hidden;
+    /* For glare */
+    cursor: pointer;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-neon);
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.project-image-container {
+    position: relative;
+    width: calc(100% + 48px);
+    margin: -32px -24px 24px -24px;
+    height: 240px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: #000;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Interactive Glare Layer */
+.project-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    mix-blend-mode: color-dodge;
+}
+
+.project-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.icon-link {
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    margin-left: 16px;
+}
+
+.icon-link:hover {
+    color: var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-title {
+    color: var(--accent-cyan);
+}
+
+.project-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    flex-grow: 1;
+    /* Pushes tech list to bottom */
+    margin-bottom: 32px;
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.project-tech-list li {
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}

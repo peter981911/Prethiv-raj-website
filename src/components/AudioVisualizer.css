@@ -1,0 +1,63 @@
+.audio-visualizer-dock {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(10, 10, 15, 0.7);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 12px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    /* Under terminal, above page */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 150px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.05);
+}
+
+.vis-header {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.vis-bars-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 30px;
+    width: 100%;
+    gap: 3px;
+}
+
+.vis-bar {
+    width: 100%;
+    background: linear-gradient(to top, var(--accent-cyan), var(--accent-pink));
+    border-radius: 2px 2px 0 0;
+    transition: height 0.05s ease-out, opacity 0.05s ease-out, box-shadow 0.05s ease-out;
+}
+
+@media (max-width: 768px) {
+    .audio-visualizer-dock {
+        bottom: auto;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        pointer-events: none;
+    }
+
+    .vis-header {
+        display: none;
+    }
+
+    .vis-bars-container {
+        height: 20px;
+        opacity: 0.5;
+    }
+}

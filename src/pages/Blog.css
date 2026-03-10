@@ -1,0 +1,22 @@
+/* Blog.css - Transmission Pending styling */
+
+.blog-page {
+    /* Relying on inline styles and global component classes for the Transmission Pending placeholder */
+    position: relative;
+}
+
+.focus-pulse {
+    animation: textPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes textPulse {
+    0% {
+        opacity: 0.7;
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+    }
+}

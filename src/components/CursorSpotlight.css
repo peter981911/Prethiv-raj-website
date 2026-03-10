@@ -1,0 +1,47 @@
+/**
+ * CursorSpotlight Styles
+ *
+ * This layer sits ABOVE the rest of the page (z-index 999) but is
+ * pointer-events: none so it never blocks clicks.
+ *
+ * The mask-image creates a transparent circle around the cursor and
+ * opaque black everywhere else, revealing the vibrant neon underneath.
+ */
+.cursor-spotlight {
+    --x: -9999px;
+    --y: -9999px;
+    --radius: 280px;
+
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    /* The hidden "reveal" layer filled with a neon circuit pattern */
+    background:
+        /* Neon grid lines */
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 39px,
+            rgba(0, 240, 255, 0.06) 39px,
+            rgba(0, 240, 255, 0.06) 40px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 39px,
+            rgba(138, 43, 226, 0.06) 39px,
+            rgba(138, 43, 226, 0.06) 40px),
+        /* Deep dark base */
+        rgba(2, 1, 18, 0.85);
+
+    /* The flashlight mask — circle of transparency around cursor */
+    -webkit-mask-image: radial-gradient(circle var(--radius) at var(--x) var(--y),
+            black 0%,
+            black 30%,
+            transparent 80%);
+    mask-image: radial-gradient(circle var(--radius) at var(--x) var(--y),
+            black 0%,
+            black 30%,
+            transparent 80%);
+}

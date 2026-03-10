@@ -1,0 +1,248 @@
+.resume-container {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+}
+
+.resume-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.print-btn {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.print-btn:hover {
+    box-shadow: 0 0 15px var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+.resume-paper {
+    background: var(--bg-card);
+    border: var(--border-glass);
+    border-radius: 8px;
+    padding: 4rem;
+    max-width: 850px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: var(--text-primary);
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.resume-title-block h1 {
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.resume-title-block h2 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.resume-contact-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.resume-contact-block span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resume-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-cyan), transparent);
+    margin-bottom: 2.5rem;
+}
+
+.resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.resume-section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.resume-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-category h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.skill-category p {
+    font-size: 0.9rem;
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+}
+
+.resume-item-header h4 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+}
+
+.tech-stack {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.resume-bullets {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.resume-bullets li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.resume-bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+}
+
+/* 
+ * CRITICAL PRINT-OPTIMIZED OVERRIDES 
+ * These rules activate ONLY when the user hits Ctrl+P to print.
+ * They deliberately strip out all the cyberpunk dark mode styling
+ * and force a pure white background with sharp black text,
+ * so the resume prints out perfectly on standard A4 paper.
+ */
+@media print {
+    @page {
+        margin: 0.5cm;
+        size: A4 portrait;
+    }
+
+    body,
+    html,
+    #root,
+    .app-wrapper,
+    .resume-container {
+        background: white !important;
+        color: black !important;
+        background-image: none !important;
+    }
+
+    /* Hide EVERYTHING that isn't the resume paper */
+    .no-print,
+    nav,
+    footer,
+    .cursor,
+    .spotlight,
+    .audio-visualizer,
+    canvas {
+        display: none !important;
+    }
+
+    /* Strip dark mode styles from the "paper" itself */
+    .resume-paper {
+        background: white !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+
+    /* Force black/dark-gray text for readability */
+    .resume-title-block h1,
+    .resume-section h3,
+    .resume-item-header h4,
+    .resume-bullets li::before,
+    .tech-stack {
+        color: black !important;
+    }
+
+    .resume-title-block h2,
+    .resume-contact-block span,
+    .resume-section p,
+    .resume-bullets li,
+    .skill-category p,
+    .skill-category h4 {
+        color: #333 !important;
+    }
+
+    /* Hardcode the divider */
+    .resume-divider {
+        background: #000 !important;
+        height: 2px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .resume-paper {
+        padding: 2rem;
+    }
+}

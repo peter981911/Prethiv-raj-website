@@ -1,0 +1,134 @@
+.architecture-container {
+    margin-top: 4rem;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.architecture-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.architecture-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+}
+
+.architecture-header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.architecture-flow {
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.nodes-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.arch-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 120px;
+}
+
+.node-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--bg-dark);
+    border: var(--border-glass);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    z-index: 3;
+}
+
+.node-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.node-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Connecting Lines */
+.flow-lines {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    transform: translateY(-50%);
+    overflow: visible;
+    z-index: 1;
+}
+
+.flow-lines path {
+    stroke: rgba(0, 240, 255, 0.3);
+    stroke-width: 2px;
+    fill: none;
+    stroke-dasharray: 1 1;
+}
+
+/* Animated Data Packet */
+.data-packet {
+    position: absolute;
+    top: 35px;
+    /* Center of the icon */
+    left: 80px;
+    /* Start outside the icon */
+    width: 8px;
+    height: 8px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-cyan);
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .nodes-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .flow-lines {
+        width: 2px;
+        height: 80%;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .flow-lines path {
+        d: path("M 50 10 L 50 90");
+    }
+
+    .data-packet {
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* Note: Vertical animation logic would need adjusting for full mobile support */
+        display: none;
+    }
+}
