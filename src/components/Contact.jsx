@@ -65,7 +65,7 @@ const Contact = () => {
                     <div className="social-dock">
                         <MagneticElement force={0.3}><a href="https://github.com/peter981911" className="social-link"><FiGithub size={22} /></a></MagneticElement>
                         <MagneticElement force={0.3}><a href="https://www.linkedin.com/in/prethiv-raj-m-v-7a1915290" className="social-link"><FiLinkedin size={22} /></a></MagneticElement>
-                        <MagneticElement force={0.3}><a href="#" className="social-link"><FiTwitter size={22} /></a></MagneticElement>
+                        <MagneticElement force={0.3}><a href="https://x.com/quantumtoast_98" className="social-link"><FiTwitter size={22} /></a></MagneticElement>
                     </div>
                 </div>
 
